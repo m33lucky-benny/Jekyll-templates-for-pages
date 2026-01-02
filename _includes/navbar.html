@@ -1,3 +1,15 @@
-<nav style="background: {{ site.data.settings.brand.primary }}; padding: 1rem;">
-  <a href="/" style="color: white; font-weight: bold;">{{ site.title }}</a>
+<nav class="navbar" aria-label="Primary navigation">
+  <div class="nav-container">
+    <a href="{{ '/' | relative_url }}" class="nav-brand">{{ site.title }}</a>
+    
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span class="hamburger"></span>
+    </button>
+    
+    <div class="nav-links">
+      {% for item in site.data.settings.nav_items %}
+      <a class="nav-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+      {% endfor %}
+    </div>
+  </div>
 </nav>
