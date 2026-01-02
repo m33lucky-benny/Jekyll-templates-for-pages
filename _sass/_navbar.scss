@@ -12,7 +12,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
+    flex-wrap: wrap; // Allow wrapping for dropdown
   }
 
   // Brand on the left
@@ -22,25 +22,26 @@
     font-weight: bold;
     text-decoration: none;
     z-index: 101;
+    order: 1; // First item
 
     .brand-kieron {
       color: white;
     }
 
     .brand-play {
-      color: #f59e0b; // Accent color
+      color: #f59e0b;
     }
   }
 
-  // Hamburger button (mobile only) - on the right
+  // Hamburger button - on the right (mobile only)
   .nav-toggle {
-    display: flex; // Changed from block to flex
+    display: flex;
     background: none;
     border: none;
     cursor: pointer;
     padding: 0.5rem;
     z-index: 101;
-    margin-left: auto; // Push to right
+    order: 2; // Second item (pushes to right)
 
     .hamburger {
       display: block;
@@ -69,7 +70,6 @@
       }
     }
 
-    // X animation when open
     &[aria-expanded="true"] .hamburger {
       background: transparent;
 
@@ -83,20 +83,16 @@
     }
   }
 
-  // Mobile: links hidden by default, dropdown from right
+  // Mobile: links HIDDEN by default
   .nav-links {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: #2563eb;
+    display: none; // Hidden by default
+    width: 100%;
     flex-direction: column;
-    padding: 1rem;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 1rem 0;
+    order: 3; // Third item (below brand and hamburger)
 
     &.active {
-      display: flex;
+      display: flex; // Show when hamburger clicked
     }
   }
 
@@ -106,7 +102,6 @@
     padding: 0.75rem 1rem;
     border-radius: 4px;
     transition: background 0.3s;
-    text-align: center; // Center text in mobile dropdown
 
     &:hover {
       background: rgba(255,255,255,0.1);
@@ -120,30 +115,25 @@
 
   // Desktop: 768px and up
   @media (min-width: 768px) {
+    .nav-container {
+      flex-wrap: nowrap; // Don't wrap on desktop
+    }
+
     .nav-toggle {
-      display: none; // Hide hamburger on desktop
+      display: none; // Hide hamburger
     }
 
     .nav-links {
-      display: flex !important; // Always show on desktop
-      position: static;
+      display: flex !important; // Always show
+      width: auto;
       flex-direction: row;
       gap: 1.5rem;
       padding: 0;
-      box-shadow: none;
-      margin-left: auto; // Push links to the right on desktop
+      order: 2; // Put links after brand
     }
 
     .nav-link {
       padding: 0.5rem 1rem;
-      text-align: left;
-    }
-  }
-
-  // Large desktop: 1024px and up
-  @media (min-width: 1024px) {
-    .nav-links {
-      gap: 2rem;
     }
   }
 }
