@@ -15,22 +15,32 @@
     position: relative;
   }
 
-  .nav-brand {
+  // Brand on the left
+  .navbar-brand {
     color: white;
     font-size: 1.25rem;
     font-weight: bold;
     text-decoration: none;
     z-index: 101;
+
+    .brand-kieron {
+      color: white;
+    }
+
+    .brand-play {
+      color: #f59e0b; // Accent color
+    }
   }
 
-  // Hamburger button (mobile only)
+  // Hamburger button (mobile only) - on the right
   .nav-toggle {
-    display: block;
+    display: flex; // Changed from block to flex
     background: none;
     border: none;
     cursor: pointer;
     padding: 0.5rem;
     z-index: 101;
+    margin-left: auto; // Push to right
 
     .hamburger {
       display: block;
@@ -73,7 +83,7 @@
     }
   }
 
-  // Mobile: links hidden by default
+  // Mobile: links hidden by default, dropdown from right
   .nav-links {
     display: none;
     position: absolute;
@@ -96,9 +106,15 @@
     padding: 0.75rem 1rem;
     border-radius: 4px;
     transition: background 0.3s;
+    text-align: center; // Center text in mobile dropdown
 
     &:hover {
       background: rgba(255,255,255,0.1);
+    }
+
+    &.active {
+      background: rgba(255,255,255,0.2);
+      font-weight: 600;
     }
   }
 
@@ -112,13 +128,23 @@
       display: flex !important; // Always show on desktop
       position: static;
       flex-direction: row;
-      gap: 1rem;
+      gap: 1.5rem;
       padding: 0;
       box-shadow: none;
+      margin-left: auto; // Push links to the right on desktop
     }
 
     .nav-link {
       padding: 0.5rem 1rem;
+      text-align: left;
+    }
+  }
+
+  // Large desktop: 1024px and up
+  @media (min-width: 1024px) {
+    .nav-links {
+      gap: 2rem;
     }
   }
 }
+
