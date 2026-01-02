@@ -2,7 +2,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: { color: $brand-dark1: }
+  background: var(--surface1);
   padding: 1rem;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 
@@ -17,7 +17,7 @@
 
   /* Brand */
   .navbar-brand {
-    color: var(--brand-surface1); 
+    color: var(--surface1); 
     font-size: 1.25rem;
     font-weight: bold;
     text-decoration: none;
