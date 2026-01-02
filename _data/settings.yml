@@ -1,0 +1,10 @@
+brand:
+  primary: "#2563eb"
+  dark: "#1f2937"
+  light: "#f9fafb"
+
+nav_items:
+  - title: Home
+    url: /
+  - title: About
+    url: /about
