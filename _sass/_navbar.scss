@@ -12,42 +12,35 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; // Allow wrapping for dropdown
+    flex-wrap: wrap;
   }
 
-  // Brand on the left
+  /* Brand */
   .navbar-brand {
     color: white;
     font-size: 1.25rem;
     font-weight: bold;
     text-decoration: none;
     z-index: 101;
-    order: 1; // First item
+    order: 1;
 
-    .brand-kieron {
-      color: white;
-    }
-
-    .brand-play {
-      color: #f59e0b;
-    }
+    .brand-kieron { color: white; }
+    .brand-play { color: #f59e0b; }
   }
 
-  // Hamburger button - on the right (mobile only)
+  /* Hamburger */
   .nav-toggle {
     display: flex;
     background: none;
     border: none;
     cursor: pointer;
     padding: 12px 20px 12px 12px;
-    margin-right: env(safe-area-inset-right);
     min-width: 44px;
     min-height: 44px;
     z-index: 101;
-    order: 2; // Second item (pushes to right)
+    order: 2;
 
     .hamburger {
-      display: block;
       width: 25px;
       height: 2px;
       background: white;
@@ -64,13 +57,8 @@
         transition: transform 0.3s;
       }
 
-      &::before {
-        top: -8px;
-      }
-
-      &::after {
-        top: 8px;
-      }
+      &::before { top: -8px; }
+      &::after { top: 8px; }
     }
 
     &[aria-expanded="true"] .hamburger {
@@ -86,16 +74,16 @@
     }
   }
 
-  // Mobile: links HIDDEN by default
+  /* Nav links – mobile first */
   .nav-links {
-    display: none; // Hidden by default
+    display: none;
     width: 100%;
     flex-direction: column;
     padding: 1rem 0;
-    order: 3; // Third item (below brand and hamburger)
+    order: 3;
 
     &.active {
-      display: flex; // Show when hamburger clicked
+      display: flex;
     }
   }
 
@@ -104,7 +92,6 @@
     text-decoration: none;
     padding: 0.75rem 1rem;
     border-radius: 4px;
-    transition: background 0.3s;
 
     &:hover {
       background: rgba(255,255,255,0.1);
@@ -116,52 +103,19 @@
     }
   }
 
-	/* Mobile-first: show hamburger only on screens <= 768px */
-@media (max-width: 768px) {
-  .nav-toggle {
-    display: flex; /* semicolon is required */
-  }
-
-  .nav-links {
-    display: none; /* hide nav links on mobile */
-  }
-}
-
-/* Desktop: show nav links, hide hamburger */
-@media (min-width: 769px) {
-  .nav-toggle {
-    display: none;
-  }
-
-  .nav-links {
-    display: flex;
-  }
-}
-
-@media (max-width: 768px) {
-	.nav-toggle {
-		display: flex;
-	}
-}
-  
-
-
-
-.nav-toggle .icon {
-  width: 44px;
-  height: 44px;
-  display: block;
-}
-
-  
+  /* Desktop */
+  @media (min-width: 769px) {
+    .nav-toggle {
+      display: none;
+    }
 
     .nav-links {
-      display: flex !important; // Always show
+      display: flex !important;
       width: auto;
       flex-direction: row;
       gap: 1.5rem;
       padding: 0;
-      order: 2; // Put links after brand
+      order: 2;
     }
 
     .nav-link {
@@ -169,4 +123,3 @@
     }
   }
 }
-
