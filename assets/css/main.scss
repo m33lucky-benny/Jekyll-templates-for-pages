@@ -4,6 +4,22 @@
 @import 'variables';
 @import "navbar";
 
+//-----------------------------------------
+// 2️⃣ Brand colors from _data/settings
+// ----------------------------------------
+$brand-dark: {{ site.data.settings.brand.dark }};
+$brand-primary: {{ site.data.settings.brand.primary }};
+$brand-secondary: {{ site.data.settings.brand.secondary }};
+$brand-text: {{ site.data.settings.brand.text }};
+$brand-surface1: {{ site.data.settings.brand.surface1 }};
+$brand-surface2: {{ site.data.settings.brand.surface2 }};
+$brand-border: {{ site.data.settings.brand.border }};
+$brand-muted: {{ site.data.settings.brand.muted }};
+
+// ----------------------------------------
+// 3️⃣ Apply brand colors to elements
+// ----------------------------------------
+
 html, body {
   height: 100%;
 }
@@ -11,7 +27,7 @@ html, body {
 body {
   margin: 0;
   font-family: system-ui, sans-serif;
-  color: $dark;
+  color: $brand-dark;
 
   /* sticky footer */
   display: flex;
