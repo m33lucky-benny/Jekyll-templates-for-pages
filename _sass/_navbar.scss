@@ -1,0 +1,124 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #2563eb;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+
+  .nav-brand {
+    color: white;
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-decoration: none;
+    z-index: 101;
+  }
+
+  // Hamburger button (mobile only)
+  .nav-toggle {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 101;
+
+    .hamburger {
+      display: block;
+      width: 25px;
+      height: 2px;
+      background: white;
+      position: relative;
+      transition: background 0.3s;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        width: 25px;
+        height: 2px;
+        background: white;
+        transition: transform 0.3s;
+      }
+
+      &::before {
+        top: -8px;
+      }
+
+      &::after {
+        top: 8px;
+      }
+    }
+
+    // X animation when open
+    &[aria-expanded="true"] .hamburger {
+      background: transparent;
+
+      &::before {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      &::after {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+    }
+  }
+
+  // Mobile: links hidden by default
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #2563eb;
+    flex-direction: column;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
+    &.active {
+      display: flex;
+    }
+  }
+
+  .nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    transition: background 0.3s;
+
+    &:hover {
+      background: rgba(255,255,255,0.1);
+    }
+  }
+
+  // Desktop: 768px and up
+  @media (min-width: 768px) {
+    .nav-toggle {
+      display: none; // Hide hamburger on desktop
+    }
+
+    .nav-links {
+      display: flex !important; // Always show on desktop
+      position: static;
+      flex-direction: row;
+      gap: 1rem;
+      padding: 0;
+      box-shadow: none;
+    }
+
+    .nav-link {
+      padding: 0.5rem 1rem;
+    }
+  }
+}
