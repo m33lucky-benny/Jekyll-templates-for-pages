@@ -17,10 +17,27 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ page.url | absolute_url }}">
   
-  <!-- Fonts - Preconnect for performance -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Self-hosted Montserrat -->
+  <link rel="stylesheet" href="{{ '/assets/css/fonts.css' | relative_url }}">
+
+  <!-- Optional Google Fonts fallback (loaded only if local Montserrat fails) -->
+  <script>
+    (function () {
+      if (!('fonts' in document)) return; // very old browsers just use system fallback
+
+      Promise.race([
+        document.fonts.load('1em "Montserrat"'),
+        new Promise(function (resolve) { setTimeout(function () { resolve([]); }, 800); })
+      ]).then(function (res) {
+        if (res && res.length) return; // local Montserrat loaded
+
+        var l = document.createElement('link');
+        l.rel = 'stylesheet';
+        l.href = 'https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap';
+        document.head.appendChild(l);
+      });
+    })();
+  </script>
   
   <!-- Google Analytics (GA4) -->
   {% if site.google_analytics %}
@@ -37,7 +54,7 @@
   {% if site.google_tag_manager %}
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+dl;f.async=true;f.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','{{ site.google_tag_manager }}');</script>
   {% endif %}
