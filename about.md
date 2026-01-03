@@ -1,8 +1,8 @@
 ---
----
 layout: page
 title: About me
 permalink: /about/
-—-
+---
 
-about is fine
+
+This is a template only, fork or copy to use
