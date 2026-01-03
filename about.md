@@ -53,10 +53,3 @@ This is a line break
 > This is a quote  
 >> Nested quote
 
-
-
-If you want it as a *single-line* code snippet, use inline code (single backticks) instead:
-
-```md
-`<div>Hello</div>`
-
