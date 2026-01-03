@@ -20,3 +20,5 @@ nav_items:
     url: /
   - title: About
     url: /about
+- title: Contact Us
+    url: /contact
