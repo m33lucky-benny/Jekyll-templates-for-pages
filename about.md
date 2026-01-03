@@ -53,10 +53,10 @@ This is a line break
 > This is a quote  
 >> Nested quote
 
-## Inline Code
-`console.log("Hello")`
 
-## Code Blocks
-```html
-<div>Hello</div>
-```
+
+If you want it as a *single-line* code snippet, use inline code (single backticks) instead:
+
+```md
+`<div>Hello</div>`
+
