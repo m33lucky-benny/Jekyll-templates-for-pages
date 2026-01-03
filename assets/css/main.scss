@@ -67,3 +67,14 @@ footer p {
   line-height: 1.2;
   color: color-mix(in srgb, var(--text) 85%, transparent);
 }
+
+// ----------------------------------------
+// div in content area 
+// ----------------------------------------
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
