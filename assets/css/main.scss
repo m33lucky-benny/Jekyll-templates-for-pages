@@ -65,5 +65,5 @@ footer p {
   margin: 0;
   font-size: 0.875rem;
   line-height: 1.2;
-  color: var(--text) 85%, transparent);
+  color: color-mix(in srgb, var(--text) 85%, transparent);
 }
