@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Markdown Cheatsheet
 description: Complete Markdown reference for Jekyll & GitHub Pages
 permalink: /about/
